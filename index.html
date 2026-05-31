@@ -3,59 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>ITI Online Exam</title>
 
 <style>
-
-body{
-font-family:Arial,sans-serif;
-background:#f2f2f2;
-margin:0;
-padding:0;
-}
-
-.container{
-max-width:400px;
-margin:60px auto;
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
-
-h2{
-text-align:center;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-margin-bottom:10px;
-box-sizing:border-box;
-}
-
-button{
-width:100%;
-padding:12px;
-border:none;
-background:#2196F3;
-color:white;
-font-size:16px;
-cursor:pointer;
-}
-
-button:hover{
-opacity:0.9;
-}
-
-#msg{
-text-align:center;
-margin-top:10px;
-color:red;
-}
-
+body{font-family:Arial;background:#f2f2f2;margin:0;padding:0}
+.container{max-width:400px;margin:60px auto;background:#fff;padding:25px;border-radius:10px}
+input,button{width:100%;padding:12px;margin-top:10px;box-sizing:border-box}
+button{background:#2196F3;color:#fff;border:none;font-size:16px}
+#msg{text-align:center;margin-top:10px;color:red}
+#tests{display:none;margin-top:20px}
 </style>
 </head>
 
@@ -65,26 +21,65 @@ color:red;
 
 <h2>ITI Online Exam Login</h2>
 
-<input
-type="email"
-id="email"
-placeholder="Enter Email">
+<input type="email" id="email" placeholder="Enter Email">
+<input type="text" id="rollno" placeholder="Enter Roll No">
+<input type="password" id="password" placeholder="Enter Password">
 
-<input
-type="text"
-id="rollno"
-placeholder="Enter Roll Number">
-
-<input
-type="password"
-id="password"
-placeholder="Enter Password">
-
-<button onclick="login()">
-Login
-</button>
+<button onclick="login()">Login</button>
 
 <p id="msg"></p>
+
+<div id="tests">
+
+<h3>Select Test</h3>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSdBc1IsZdfHQhujoi5bp4ReBynhWMRgposWewFEr8k0-kHbow/viewform')">Test 1</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSfFU3umGYlSS2hnx36bS6J55Dtd-lNCpDZUrgbjPr8RqYCMTg/viewform')">Test 2</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSe0jySFa5GGFA6CqIjkO5MVXndT5aPoQ-AwdSwdSHB0LXP5_g/viewform')">Test 3</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLScdNRWHoIYlZqaLyjHuxiL8UBKVTp2dgoTTvlkP-djFBpinPQ/viewform')">Test 4</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSefATJNzRSNk-mt5PCNVA76PgvRzcWdzBeuStxwYd8gyCot0w/viewform')">Test 5</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSd9msJMJyZ2jhZ8A96gTCh98WBeVqZBf7dCwxTrlIoH1mVv9w/viewform')">Test 6</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSccvAI279UNCgefp5MnorGjac087LH6x9OdN8fe_21DjS3ggg/viewform')">Test 7</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSfp8jYUIHFXa-KIYTIVfwtklAlzPiIfoFfbja6n8SxPANmvSw/viewform')">Test 8</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSe-YdVg9NKyydkhpo-2xvYpJ3hc4EQYH62no4Q7fvj61F7NPg/viewform')">Test 9</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSeBH2z99RYHXVZnM5Ah1JlQfL6EHcruAod7VqqSU8O-b3Ay8A/viewform')">Test 10</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSeVHjUaMNhZdg7CbDmfg7_CUu9deMc7EBFhZgIYMa0bZWaIGg/viewform')">Test 11</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLScuoF4zNjRrm1uRYSjjHX1b5nv36_SRTk_CA1fXKOQY5B7qTA/viewform')">Test 12</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSftTcht790YIzmZBuGlwdljMpIBp5YJqFkNnbVPThUYqqJITw/viewform')">Test 13</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSfFjq8En5NDKAn9jWvcUB_aKyDVY81LUZd7eV3O4eQrRo6sEw/viewform')">Test 14</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSfZtoE3UXnHtmUOMf1H_LSYiE6TwOVwDciv8AbBWx6qcJnSYw/viewform')">Test 15</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSeb0HG7SDfPgcuoSUcmk-ljWo9M2Z8tyL_uQia-SKixnlOFDg/viewform')">Test 16</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSesTno8sVQ6kXQ1th03RXFgXQ7kqhnOKyFiY3AQZ1DFjELk4A/viewform')">Test 17</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSfcu6PjEqM9bA78NEHW8yZtRZ0pl_NzXJwkxRLCWft6XqNEMw/viewform')">Test 18</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSd09kcU4Lm8wlLUX2rUTQTbSf5SEIL3la4xcCCOrXZUNGARhA/viewform')">Test 19</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSc4824a55T5DvQf6XlVa5cdQzgpvZUGsrVBFmuRvjTi1UJMCg/viewform')">Test 20</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSeNSNkdAdcnHkvphiTEzEYhVhcDX1KNpavxsUC0aw7-_A9arg/viewform')">Test 21</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLSdaVjhHObk9j4wIr1BEfCekrX-ZG0L0KaJIpgLJ7QA9y-GY1Q/viewform')">Test 22</button><br><br>
+
+<button onclick="openTest('https://docs.google.com/forms/d/e/1FAIpQLScaUdIhfwWyBZipKwfxuQYI_pSgMBBcJsPrlRXqFJ80GHf6sQ/viewform')">Test 23</button><br><br>
+
+</div>
 
 </div>
 
@@ -92,66 +87,41 @@ Login
 
 function login(){
 
-document.getElementById("msg").innerHTML =
-"Checking...";
+document.getElementById("msg").innerText="Checking...";
 
-fetch(
-"https://script.google.com/macros/s/AKfycby9H_TcqqXNSG_8Lbf8Bk-IlUjF6kCY2tSEDBRlKwY3-NtN5LmvOci22QZyTTZU5i_z/exec",
+fetch("https://script.google.com/macros/s/AKfycby9H_TcqqXNSG_8Lbf8Bk-IlUjF6kCY2tSEDBRlKwY3-NtN5LmvOci22QZyTTZU5i_z/exec",
 {
 method:"POST",
+headers:{"Content-Type":"text/plain;charset=utf-8"},
 body:JSON.stringify({
-
-email:
-document.getElementById("email").value,
-
-rollno:
-document.getElementById("rollno").value,
-
-password:
-document.getElementById("password").value
-
+email:document.getElementById("email").value,
+rollno:document.getElementById("rollno").value,
+password:document.getElementById("password").value
+})
 })
 
-})
-
-.then(response=>response.json())
-
+.then(res=>res.json())
 .then(data=>{
-
-alert(JSON.stringify(data));
 
 if(data.status=="success"){
 
-localStorage.setItem(
-"name",
-data.name
-);
+document.getElementById("tests").style.display="block";
+document.getElementById("msg").innerText="Login Success";
 
-localStorage.setItem(
-"trade",
-data.trade
-);
-
-document.getElementById("msg").innerHTML =
-"Login Success";
-
-}
-else{
-
-document.getElementById("msg").innerHTML =
-"Invalid Login";
-
+}else{
+document.getElementById("msg").innerText="Invalid Login";
 }
 
 })
 
-.catch(error=>{
-
-document.getElementById("msg").innerHTML =
-"Server Error";
-
+.catch(()=>{
+document.getElementById("msg").innerText="Server Error";
 });
 
+}
+
+function openTest(link){
+window.open(link,"_blank");
 }
 
 </script>
