@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gate</title>
+</head>
+
+<body style="font-family:Arial;text-align:center">
+
+<h2 id="msg">Checking Access...</h2>
+
+<script>
+
+let name = localStorage.getItem("name");
+let link = localStorage.getItem("testLink");
+
+if(!name){
+document.getElementById("msg").innerText="Access Denied";
+setTimeout(()=>{
+window.location.href="index.html";
+},2000);
+}
+else if(!link){
+document.getElementById("msg").innerText="No Test Selected";
+}
+else{
+document.getElementById("msg").innerText="Opening Test...";
+setTimeout(()=>{
+window.location.href = link;
+},1500);
+}
+
+</script>
+
+</body>
+</html>
