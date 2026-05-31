@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student Registration</title>
+<title>Registration</title>
 </head>
 
 <body style="font-family:Arial;text-align:center">
@@ -16,16 +16,13 @@
 
 <p id="msg"></p>
 
-<!-- OK button initially hidden -->
-<button id="okBtn" style="display:none" onclick="goNext()">OK → Login</button>
-
 <script>
 
 function register(){
 
 document.getElementById("msg").innerText="Processing...";
 
-fetch("YOUR_APPS_SCRIPT_URL",{
+fetch("YOUR_SCRIPT_URL",{
 method:"POST",
 headers:{"Content-Type":"text/plain;charset=utf-8"},
 body:JSON.stringify({
@@ -43,21 +40,11 @@ if(data.status=="success"){
 document.getElementById("msg").innerHTML =
 "RollNo: " + data.rollno + "<br>Password: " + data.password;
 
-// show OK button
-document.getElementById("okBtn").style.display="block";
-
 }else{
 document.getElementById("msg").innerText="Error";
 }
 
 });
-
-}
-
-function goNext(){
-
-// next page (login page)
-window.location.href = "index.html";
 
 }
 
