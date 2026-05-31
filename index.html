@@ -1,13 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>ITI Online Exam</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f2f2f2;
+margin:0;
+padding:0;
+}
+
+.container{
+max-width:400px;
+margin:60px auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:10px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#2196F3;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+#msg{
+text-align:center;
+margin-top:10px;
+color:red;
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>ITI Online Exam Portal</h1>
+<div class="container">
 
-<p>Website Working Successfully</p>
+<h2>ITI Online Exam Login</h2>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email">
+
+<input
+type="text"
+id="rollno"
+placeholder="Enter Roll Number">
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="login()">
+Login
+</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+
+function login(){
+
+document.getElementById("msg").innerHTML =
+"Checking...";
+
+fetch(
+"https://script.google.com/macros/s/AKfycbws2uMhEpwDRGDYbIfwrd1l34bYktjCqv2Ic0IgxoT_qnoJ_q2pwG3yxhtowgBaeCuD/exec",
+{
+method:"POST",
+body:JSON.stringify({
+
+email:
+document.getElementById("email").value,
+
+rollno:
+document.getElementById("rollno").value,
+
+password:
+document.getElementById("password").value
+
+})
+
+})
+
+.then(response=>response.json())
+
+.then(data=>{
+
+if(data.status=="success"){
+
+localStorage.setItem(
+"name",
+data.name
+);
+
+localStorage.setItem(
+"trade",
+data.trade
+);
+
+document.getElementById("msg").innerHTML =
+"Login Success";
+
+}
+else{
+
+document.getElementById("msg").innerHTML =
+"Invalid Login";
+
+}
+
+})
+
+.catch(error=>{
+
+document.getElementById("msg").innerHTML =
+"Server Error";
+
+});
+
+}
+
+</script>
 
 </body>
-</html>i
+</html>
