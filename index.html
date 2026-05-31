@@ -118,6 +118,8 @@ document.getElementById("password").value
 
 .then(data=>{
 
+alert(JSON.stringify(data));
+
 if(data.status=="success"){
 
 localStorage.setItem(
